@@ -1,0 +1,16 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "A simple tool to parse excel files to json and then upload the converted json to firebase for easy searches from web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pramesh Bajracharya",
+  "license": "MIT",
+  "dependencies": {
+    "excel-to-json": "^1.0.0",
+    "node-excel-to-json": "0.0.3",
+    "xls-to-json": "^0.4.0"
+  }
+}
