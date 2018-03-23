@@ -62,7 +62,6 @@ realParser = (result) => {
 
 app.post('/upload', (req, res, next) => {
     let imageFile = req.files.file;
-    console.log(database)
     imageFile.mv(`${__dirname}/datasheets/${req.body.filename}.xlsx`, (err) => {
         if (err) {
             return res.status(500).send(err);
