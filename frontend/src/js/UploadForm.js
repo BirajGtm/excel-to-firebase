@@ -22,9 +22,11 @@ class UploadForm extends Component {
                 data.append('filename', this.state.fileName);
                 fetch('http://localhost:8000/upload', {
                     method: 'POST',
+                    mode: 'no-cors',
                     body: data,
                 }).then((response) => {
                     if (response) {
+                        console.log('Response successfully recieved, response');
                     }
                 });
             } else {

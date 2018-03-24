@@ -52,7 +52,7 @@ realParser = (result) => {
             obj[item.regdNo] = item
             return obj;
         }, {});
-    fs.writeFile(`${__dirname}/output/students.json`,
+    fs.writeFile(`${__dirname}/public/students.json`,
         JSON.stringify(arrayToObject(finalResult)),
         (err) => {
             if (err) { console.log('laaa mula error po aaidyo ni') }
@@ -62,13 +62,13 @@ realParser = (result) => {
 
 app.post('/upload', (req, res, next) => {
     let imageFile = req.files.file;
-    imageFile.mv(`${__dirname}/datasheets/${req.body.filename}.xlsx`, (err) => {
+    imageFile.mv(`${__dirname}/public/${req.body.filename}.xlsx`, (err) => {
         if (err) {
             return res.status(500).send(err);
         }
         node_xj({
-            input: `${__dirname}/datasheets/${req.body.filename}.xlsx`,  // input xls 
-            output: `${__dirname}/output/${req.body.filename}.json` // output json   // specific sheetname 
+            input: `${__dirname}/public/${req.body.filename}.xlsx`,  // input xls 
+            output: `${__dirname}/public/${req.body.filename}.json` // output json   // specific sheetname 
         }, (err, result) => {
             if (err) {
                 console.error(err);
