@@ -10,6 +10,7 @@ class ListAll extends Component {
         }
     }
     viewAll = () => {
+        this.setState(() => ({ studentList: [] }))
         database.ref().once('value').then((snapshot) => {
             const redgArr = [];
             const receivedObj = snapshot.val();
@@ -26,7 +27,7 @@ class ListAll extends Component {
             <div>
                 <button onClick={this.viewAll}>View All</button>
                 {
-                    this.state.studentList.map((student, i) => (
+                    this.state.studentList.sort().map((student, i) => (
                         <div key={i}>
                             Name: {student.name}
                             <br />
